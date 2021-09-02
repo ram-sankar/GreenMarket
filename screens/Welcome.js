@@ -1,13 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Image } from "react-native";
-import AppButton from "../components/AppButton";
 
+import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
 import { colors } from "../constants/theme";
+import AppScreen from "../components/AppScreen";
 
 function Welcome({navigation}) {
   return (
-    <View style={styles.container}>
+    <AppScreen style={styles.container}>
       <View style={styles.headingContainer}>
         <AppText style={styles.text}>Your home.</AppText>
         <AppText style={styles.textGreen}>Greener</AppText>
@@ -28,21 +29,18 @@ function Welcome({navigation}) {
         color="black"
         backgroundColor="white"
       />
-    </View>
+    </AppScreen>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: colors.appBackGround,
-    height: '100%',
-    width: '100%'
   },
   headingContainer: {
     flexDirection:'row',
     justifyContent: 'center',
-    marginTop: '20%',
+    marginTop: '10%',
   },
   text: {
     fontSize: 24,

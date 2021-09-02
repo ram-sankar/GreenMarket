@@ -1,12 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
+
+import AppScreen from "../components/AppScreen";
 
 function Explore() {
   return (
-    <View>
+    <AppScreen style={styles.container}>
       <Text>Explore</Text>
-    </View>
+    </AppScreen>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center'
+  }
+});
 
 export default Explore;

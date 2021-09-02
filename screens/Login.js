@@ -1,22 +1,19 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
-import { colors } from "../constants/theme";
+import AppScreen from "../components/AppScreen";
 
 function Login() {
   return (
-    <View style={styles.container}>
+    <AppScreen style={styles.container}>
       <Text>Login</Text>
-    </View>
+    </AppScreen>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    backgroundColor: colors.appBackGround,
-    height: '100%',
-    width: '100%'
+    alignItems: 'center'
   }
 });
 
