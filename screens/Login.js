@@ -17,7 +17,7 @@ function Login({navigation}) {
 
   const [loginFailed, setLoginFailed] = useState(false)
   const handleSubmit = ({email, password}) => {
-    if (email==='arya@test.com' && password==='NotToday') {
+    if (email==='arya@starks.com' && password==='NotToday') {
       return navigation.navigate('Home')
     } else {
       setLoginFailed(true)
