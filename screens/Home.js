@@ -3,10 +3,10 @@ import { StyleSheet, Text } from "react-native";
 
 import AppScreen from "../components/AppScreen";
 
-function Browse() {
+function Home() {
   return (
     <AppScreen style={styles.container}>
-      <Text>Browse</Text>
+      <Text>Home</Text>
     </AppScreen>
   )
 }
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Browse;
+export default Home;
