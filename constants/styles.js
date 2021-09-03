@@ -17,4 +17,9 @@ export default {
     width: "70%",
     marginVertical: 10,
   },
+  headingText: {
+    fontWeight: '700',
+    fontSize: 30,
+    marginBottom: 30
+  }
 };

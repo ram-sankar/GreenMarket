@@ -1,12 +1,13 @@
 import React, {useState} from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
-import AppIcon from "../components/AppIcon";
 import AppScreen from "../components/AppScreen";
 import AppText from "../components/AppText";
+import BackButton from "../components/BackButton";
 import { ErrorMessage, Form, FormField, SubmitButton } from "../components/forms";
-import { colors } from "../constants/theme";
+import defaultStyles from "../constants/styles";
+import { sizes } from "../constants/theme";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -24,19 +25,8 @@ function Login({navigation}) {
     }
   }
 
-  return (
-    <AppScreen style={styles.container}>
-      <TouchableOpacity style={styles.backIcon} onPress={() => navigation.navigate('Welcome')}>
-        <AppIcon
-          name='keyboard-backspace'
-          backgroundColor={colors.appBackGround}
-          iconColor={colors.black}
-          size={52}
-        />
-      </TouchableOpacity>
-      <AppText style={styles.loginText}>Login</AppText>
-
-      <Form 
+  const loginForm = (
+    <Form 
         initialValues={{ email: "arya@starks.com", password: "NotToday" }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
@@ -62,6 +52,13 @@ function Login({navigation}) {
         />
         <SubmitButton title="Login" style={styles.loginButton}/>
       </Form>
+  )
+
+  return (
+    <AppScreen style={styles.container}>
+      <BackButton navigateTo='Welcome' navigation={navigation}/>
+      <AppText style={defaultStyles.headingText}>Login</AppText>
+      {loginForm}
       <AppText style={styles.forgotPassword}>Forgot your password?</AppText>
     </AppScreen>
   )
@@ -69,12 +66,7 @@ function Login({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: '5%'
-  },
-  loginText: {
-    fontWeight: '700',
-    fontSize: 30,
-    marginBottom: 30
+    padding: sizes.padding
   },
   backIcon: {
     marginLeft: -15,
@@ -88,7 +80,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
     fontSize: 15,
-    color: colors.gray
+    color: defaultStyles.colors.gray
   }
 });
 
