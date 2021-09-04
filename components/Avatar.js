@@ -2,8 +2,15 @@ import React from "react";
 import { Image, TouchableOpacity, StyleSheet } from "react-native";
 
 function Avatar({ source, navigation, navigateTo }) {
+  const navigateToPage = () => {
+    if (navigateTo) {
+      return navigation.navigate(navigateTo);
+    } else {
+      return null;
+    }
+  }
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(navigateTo)}>
+    <TouchableOpacity onPress={navigateToPage}>
         <Image source={source} style={styles.avatar} />
       </TouchableOpacity>
   );

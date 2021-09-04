@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Image, FlatList, TouchableOpacity, StyleSheet, Text, View, Dimensions } from "react-native";
+import { Image, FlatList, TouchableOpacity, StyleSheet, View, Dimensions } from "react-native";
 
 import AppScreen from "../components/AppScreen";
 import Avatar from "../components/Avatar";
@@ -43,8 +43,8 @@ function Home({navigation}) {
   return (
     <AppScreen style={styles.container}>
       <View style={styles.topHeadingContainer}>
-        <Text style={[defaultStyles.headingText, styles.heading]}>Browse</Text>
-        <Avatar source={mocks.profile.avatar} navigateTo="Login" navigation={navigation}/>
+        <AppText style={[defaultStyles.headingText, styles.heading]}>Browse</AppText>
+        <Avatar source={mocks.profile.avatar} navigateTo="Profile" navigation={navigation}/>
       </View>
       <View style={styles.tabContainer}>
         {tabHeaders.map(tab => renderTab(tab))}
