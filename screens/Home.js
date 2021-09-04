@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { FlatList, TouchableOpacity, StyleSheet, Text, View, Dimensions } from "react-native";
+import { Image, FlatList, TouchableOpacity, StyleSheet, Text, View, Dimensions } from "react-native";
 
 import AppScreen from "../components/AppScreen";
 import Avatar from "../components/Avatar";
@@ -14,10 +14,10 @@ function Home({navigation}) {
 
   const tabHeaders = ["Products", "Inspirations", "Shop"];
   const [active, setActive] = useState("Products");
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState(mocks.categories);
 
   const handleTab = tab => {
-    const filtered = categories.filter(category =>
+    const filtered = mocks.categories.filter(category =>
       category.tags.includes(tab.toLowerCase())
     );
     setActive(tab);
@@ -50,11 +50,15 @@ function Home({navigation}) {
         {tabHeaders.map(tab => renderTab(tab))}
       </View>
       <FlatList 
-        data={mocks.categories}
-        renderItem={() => (
+        data={categories}
+        renderItem={(category) => (
           <View style={styles.card}>
             <View style={styles.cardContent}>
-              <AppText>Category</AppText>
+              <View style={styles.cardImageContainer}>
+                <Image style={styles.itemImage} source={category.item.image} />
+              </View>
+              <AppText style={styles.itemName}>{category.item.name}</AppText>
+              <AppText style={styles.itemCount}>{category.item.count} products</AppText>
             </View>
           </View>
         )}
@@ -96,17 +100,34 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: colors.white,
-    flex: 1,
+    flex: 0.5,
+    // maxWidth: '45%',
     height: (width - sizes.padding * 3 - sizes.base)/2,
-    // minWidth: (width - sizes.padding * 5 - sizes.base) / 2,
     margin: 10,
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     borderRadius: 5,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   cardContent: {
     backgroundColor: colors.white,
+    alignItems: 'center',
+  },
+  cardImageContainer: {
+    backgroundColor: colors.lightGreen,
+    height: 50,
+    width: 50,
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  itemName: {
+    fontWeight: '600',
+    fontSize: 23
+  },
+  itemCount: {
+    fontSize: 18,
+    color: colors.gray2
   }
 });
 
