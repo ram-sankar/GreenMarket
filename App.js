@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator();
 export default function App({navigation}) {
   return (
     <NavigationContainer theme={NavigationTheme}>
-      <Stack.Navigator initialRouteName="Profile" screenOptions={{
+      <Stack.Navigator initialRouteName="Welcome" screenOptions={{
         headerShown: false
       }}>
         <Stack.Screen name="Welcome" component={Welcome} />

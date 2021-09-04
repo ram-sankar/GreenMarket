@@ -73,7 +73,7 @@ function Profile({navigation}) {
     <AppScreen style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.topHeadingContainer}>
-          <BackButton style={styles.backButton} navigateTo='Home' navigation={navigation}/>
+          <BackButton style={styles.backButton} navigation={navigation}/>
           <AppText style={[defaultStyles.headingText, styles.heading]}>Profile</AppText>
           <Avatar source={mocks.profile.avatar} navigation={navigation}/>
         </View>

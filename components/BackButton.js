@@ -4,9 +4,9 @@ import { TouchableOpacity, StyleSheet } from "react-native";
 import AppIcon from "../components/AppIcon";
 import { colors } from "../constants/theme";
 
-function BackButton({ navigation, navigateTo, style }) {
+function BackButton({ navigation, style }) {
   return (
-    <TouchableOpacity style={[styles.backIcon, style]} onPress={() => navigation.navigate(navigateTo)}>
+    <TouchableOpacity style={[styles.backIcon, style]} onPress={() => navigation.pop()}>
         <AppIcon
           name='keyboard-backspace'
           backgroundColor={colors.appBackGround}
