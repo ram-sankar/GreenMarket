@@ -8,7 +8,9 @@ const colors = {
   gray: "#9DA3B4",
   gray2: "#C5CCD6",
   appBackGround: '#f5f5f5',
-  lightGreen: '#e1fce4'
+  lightGreen: '#e1fce4',
+  lightGreen2: '#ddffda',
+  transparent: '#00000000'
 };
 
 const sizes = {

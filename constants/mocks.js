@@ -86,4 +86,8 @@ const profile = {
   newsletter: false
 };
 
-export { categories, explore, products, profile };
+const images = {
+  plant: require("../assets/images/plant.png")
+}
+
+export { categories, explore, products, profile, images };

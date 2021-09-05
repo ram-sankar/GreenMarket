@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Image, FlatList, TouchableOpacity, StyleSheet, View, Dimensions } from "react-native";
+import { Image, FlatList, TouchableOpacity, StyleSheet, View, Dimensions, Pressable } from "react-native";
 
 import AppScreen from "../components/AppScreen";
 import Avatar from "../components/Avatar";
@@ -26,7 +26,6 @@ function Home({navigation}) {
 
   const renderTab = tab => {
     const isActive = active === tab;
-
     return (
       <TouchableOpacity
         key={`tab-${tab}`}
@@ -53,13 +52,15 @@ function Home({navigation}) {
         data={categories}
         renderItem={(category) => (
           <View style={styles.card}>
-            <View style={styles.cardContent}>
-              <View style={styles.cardImageContainer}>
-                <Image style={styles.itemImage} source={category.item.image} />
+            <Pressable onPress={() => navigation.navigate("Product")}>
+              <View style={styles.cardContent}>
+                <View style={styles.cardImageContainer}>
+                  <Image style={styles.itemImage} source={category.item.image} />
+                </View>
+                <AppText style={styles.itemName}>{category.item.name}</AppText>
+                <AppText style={styles.itemCount}>{category.item.count} products</AppText>
               </View>
-              <AppText style={styles.itemName}>{category.item.name}</AppText>
-              <AppText style={styles.itemCount}>{category.item.count} products</AppText>
-            </View>
+            </Pressable>
           </View>
         )}
         numColumns={2}

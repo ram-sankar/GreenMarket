@@ -7,19 +7,21 @@ import Welcome from './screens/Welcome'
 import Login from './screens/Login'
 import Home from './screens/Home';
 import Profile from './screens/Profile';
+import Product from './screens/Product';
 
 const Stack = createNativeStackNavigator();
 
 export default function App({navigation}) {
   return (
     <NavigationContainer theme={NavigationTheme}>
-      <Stack.Navigator initialRouteName="Welcome" screenOptions={{
+      <Stack.Navigator initialRouteName="Home" screenOptions={{
         headerShown: false
       }}>
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Product" component={Product} />
       </Stack.Navigator>
     </NavigationContainer>
   );
