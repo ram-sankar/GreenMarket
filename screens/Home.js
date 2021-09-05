@@ -39,6 +39,26 @@ function Home({navigation}) {
     );
   }
 
+  const RenderItem = () => (
+    <FlatList 
+      data={categories}
+      renderItem={(category) => (
+        <View style={styles.card}>
+          <Pressable onPress={() => navigation.navigate("Product", {name: category.item.name, count: category.item.count})}>
+            <View style={styles.cardContent}>
+              <View style={styles.cardImageContainer}>
+                <Image style={styles.itemImage} source={category.item.image} />
+              </View>
+              <AppText style={styles.itemName}>{category.item.name}</AppText>
+              <AppText style={styles.itemCount}>{category.item.count} products</AppText>
+            </View>
+          </Pressable>
+        </View>
+      )}
+      numColumns={2}
+    />
+  )
+
   return (
     <AppScreen style={styles.container}>
       <View style={styles.topHeadingContainer}>
@@ -48,23 +68,7 @@ function Home({navigation}) {
       <View style={styles.tabContainer}>
         {tabHeaders.map(tab => renderTab(tab))}
       </View>
-      <FlatList 
-        data={categories}
-        renderItem={(category) => (
-          <View style={styles.card}>
-            <Pressable onPress={() => navigation.navigate("Product")}>
-              <View style={styles.cardContent}>
-                <View style={styles.cardImageContainer}>
-                  <Image style={styles.itemImage} source={category.item.image} />
-                </View>
-                <AppText style={styles.itemName}>{category.item.name}</AppText>
-                <AppText style={styles.itemCount}>{category.item.count} products</AppText>
-              </View>
-            </Pressable>
-          </View>
-        )}
-        numColumns={2}
-      />
+      <RenderItem />
     </AppScreen>
   )
 }

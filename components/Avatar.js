@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, TouchableOpacity, StyleSheet } from "react-native";
 
-function Avatar({ source, navigation, navigateTo }) {
+function Avatar({ source, navigation, navigateTo="Profile" }) {
   const navigateToPage = () => {
     if (navigateTo) {
       return navigation.navigate(navigateTo);

@@ -1,5 +1,5 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import React, {useState} from "react";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 
 import AppScreen from "../components/AppScreen";
 import BackButton from "../components/BackButton";
@@ -8,8 +8,38 @@ import AppText from "../components/AppText";
 import Avatar from "../components/Avatar";
 import { mocks } from "../constants";
 import { colors } from "../constants/theme";
+import defaultStyles from "../constants/styles";
 
-function Product({navigation}) {
+function Product({navigation, route: {params}}) {
+  const [quantity, setQuantity] = useState(1);
+  const [quantityLeft, setQuantityLeft] = useState(params.count);
+
+  const descQty = () => {
+    if (quantity > 1) {
+      setQuantity(prevQty => prevQty - 1)
+      setQuantityLeft(prevQty => prevQty + 1)
+    }
+  }
+
+  const incQty = () => {
+    if (quantity <= params.count) {
+      setQuantity(prevQty => prevQty + 1)
+      setQuantityLeft(prevQty => prevQty - 1)
+    }
+  }
+
+  const Quantity = () => (
+    <View style={[styles.displayFlex, styles.fullBorder]}>
+      <Pressable onPress={descQty}>
+        <AppText style={[styles.quantityBox, styles.backgroundGrey]}>-</AppText>
+      </Pressable>
+      <AppText style={[styles.quantityBox]}>{quantity}</AppText>
+      <Pressable onPress={incQty}>
+        <AppText style={[styles.quantityBox, styles.backgroundGrey]}>+</AppText>
+      </Pressable>
+    </View>
+  )
+
   return (
     <AppScreen style={styles.container}>
       <View style={styles.topHeadingContainer}>
@@ -22,7 +52,18 @@ function Product({navigation}) {
       </View>
 
       <View style={styles.bottomCard}>
-        <AppText>bottom</AppText>
+        <View style={styles.displayFlex}>
+          <AppText style={[defaultStyles.headingText, styles.heading]}>{params.name}</AppText>
+          <AppText style={[styles.subHeading]}>Qty Left: </AppText>
+          <AppText style={[styles.subHeading, styles.primaryColor]}>{quantityLeft}</AppText>
+        </View>
+
+        <View style={[styles.displayFlex, styles.mb2]}>
+          <AppText style={[styles.subHeading, styles.flex1]}>&#8377; 1,250</AppText>
+          <Quantity />
+        </View>
+
+        <AppText style={styles.viewMore}>View More</AppText>
         <AppButton title='Buy Now' style={styles.cardButton}/>
       </View>
     </AppScreen>
@@ -65,6 +106,39 @@ const styles = StyleSheet.create({
   },
   flex1: {
     flex: 1
+  },
+  displayFlex: {
+    flexDirection: 'row'
+  },
+  heading: {
+    flex: 1,
+  },
+  subHeading: {
+    fontWeight: '700',
+    fontSize: 20,
+    marginTop: 5,
+  },
+  greyColor: {
+    color: colors.gray
+  },
+  primaryColor: {
+    color: colors.primary
+  },
+  quantityBox: {
+    paddingHorizontal: 20,
+    paddingVertical: 5,
+    borderColor: colors.black,
+  },
+  backgroundGrey: {
+    backgroundColor: colors.appBackGround,
+    borderRadius: 5,
+  },
+  mb2: {
+    marginBottom: 15
+  },
+  viewMore: {
+    color: colors.primary,
+    fontWeight: '600'
   }
 });
 
