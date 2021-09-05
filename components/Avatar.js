@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, TouchableOpacity, StyleSheet } from "react-native";
 
-function Avatar({ source, navigation, navigateTo="Profile" }) {
+function Avatar({ source, navigation, navigateTo="Profile", style }) {
   const navigateToPage = () => {
     if (navigateTo) {
       return navigation.navigate(navigateTo);
@@ -10,7 +10,7 @@ function Avatar({ source, navigation, navigateTo="Profile" }) {
     }
   }
   return (
-    <TouchableOpacity onPress={navigateToPage}>
+    <TouchableOpacity onPress={navigateToPage} style={style}>
         <Image source={source} style={styles.avatar} />
       </TouchableOpacity>
   );

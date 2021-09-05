@@ -8,13 +8,14 @@ import Login from './screens/Login'
 import Home from './screens/Home';
 import Profile from './screens/Profile';
 import Product from './screens/Product';
+import Details from './screens/Details';
 
 const Stack = createNativeStackNavigator();
 
 export default function App({navigation}) {
   return (
     <NavigationContainer theme={NavigationTheme}>
-      <Stack.Navigator initialRouteName="Home" screenOptions={{
+      <Stack.Navigator initialRouteName="Welcome" screenOptions={{
         headerShown: false
       }}>
         <Stack.Screen name="Welcome" component={Welcome} />
@@ -22,6 +23,7 @@ export default function App({navigation}) {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Product" component={Product} />
+        <Stack.Screen name="Details" component={Details} />
       </Stack.Navigator>
     </NavigationContainer>
   );

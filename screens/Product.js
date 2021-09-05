@@ -63,7 +63,9 @@ function Product({navigation, route: {params}}) {
           <Quantity />
         </View>
 
-        <AppText style={styles.viewMore}>View More</AppText>
+        <Pressable onPress={() => navigation.navigate('Details')}>
+          <AppText style={styles.viewMore}>View More</AppText>
+        </Pressable>
         <AppButton title='Buy Now' style={styles.cardButton}/>
       </View>
     </AppScreen>
