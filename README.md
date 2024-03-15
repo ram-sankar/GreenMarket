@@ -1,8 +1,17 @@
-# Go Green
+## GreenMarket: Your Plant and Gardening Marketplace
 
-Go Green is a React Native based mobile app with well structured folders, 
-all basic custom elements, loosly coupled components and default theme and color pallets
- with light and dark theme support which can be used as boilerplate code for other project.
+Experience the simplicity of Green Market, an app designed for listing and purchasing plant and gardening products with ease and cleanliness.
+
+- **Theme Options**: Switch between dark and light themes for personalized viewing.
+
+- **Product Listings**: Browse a neatly organized list of products and delve into detailed descriptions.
+  
+- **Add Product Form**: Easily contribute to the marketplace by filling out a straightforward form.
+
+- **Login & Register**: Securely access your account to explore the offerings.
+
+This React Native-based mobile app has structured folders, essential custom elements, and loosely-coupled components.
+
 
  ## Screen Shots
 
